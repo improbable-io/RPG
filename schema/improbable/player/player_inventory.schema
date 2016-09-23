@@ -1,0 +1,8 @@
+package improbable.player;
+
+import "improbable/supplies/supply_type.schema";
+
+component PlayerInventory {
+    id = 10102;
+    map<improbable.supplies.SupplyTypeEnum, int32> supply_quantity_map = 1;
+}

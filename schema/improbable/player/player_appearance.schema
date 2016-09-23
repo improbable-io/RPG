@@ -1,0 +1,7 @@
+package improbable.player;
+
+component PlayerAppearanceState {
+  id = 10100;
+  Vector3f color = 1;
+}
+

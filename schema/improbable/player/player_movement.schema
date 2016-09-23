@@ -1,0 +1,6 @@
+package improbable.player;
+
+component PlayerMovementState {
+  id = 10101;
+  Vector3f target_position = 1;
+}

@@ -1,0 +1,6 @@
+package improbable.checks;
+
+component CheckClientHasControl {
+  id = 10902;
+  bool is_delegated = 1;
+}

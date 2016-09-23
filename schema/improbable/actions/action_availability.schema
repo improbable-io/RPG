@@ -1,0 +1,8 @@
+package improbable.actions;
+
+import "improbable/actions/action_type.schema";
+
+component ActionAvailability {
+    id = 10300;
+    list<ActionTypeEnumWrapper> available_actions_list = 1;
+}

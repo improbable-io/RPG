@@ -1,0 +1,13 @@
+package improbable.supplies;
+
+import "improbable/supplies/supply_type.schema";
+
+component Supply {
+    id = 10400;
+    SupplyTypeEnum supply_type = 1;
+    bool is_depletable = 2;
+    int32 current_amount = 3;
+    float harvest_duration = 4;
+    int32 harvest_yield = 5;
+    int32 max_capacity = 6;
+}

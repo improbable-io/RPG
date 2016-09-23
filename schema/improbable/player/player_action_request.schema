@@ -1,0 +1,13 @@
+package improbable.player;
+
+import "improbable/actions/action_type.schema";
+
+type PlayerActionRequestPayload {
+    EntityId target_entity = 1;
+    improbable.actions.ActionTypeEnum action = 2;
+}
+
+component PlayerActionRequest {
+    id = 10103;
+    event PlayerActionRequestPayload action_request;
+}

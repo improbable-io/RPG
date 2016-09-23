@@ -1,0 +1,13 @@
+package improbable.player;
+
+import "improbable/supplies/supply_type.schema";
+
+type PlayerTransactionRequestPayload {
+    improbable.supplies.SupplyTypeEnum from_supply_type = 1;
+    improbable.supplies.SupplyTypeEnum to_supply_type = 2;
+}
+
+component PlayerTransactionRequest {
+    id = 10104;
+    event PlayerTransactionRequestPayload transaction_request;
+}

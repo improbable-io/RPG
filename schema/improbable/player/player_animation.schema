@@ -1,0 +1,17 @@
+package improbable.player;
+
+type PlayerAnimationPayload {
+  string animation_clip_name = 1;
+}
+
+type PlayerAnimationBoolPayload {
+  string boolean_key = 1;
+  bool boolean_value = 2;
+}
+
+component PlayerAnimation {
+  id = 10105;
+  event PlayerAnimationPayload animation;
+  event PlayerAnimationBoolPayload set_bool;
+}
+

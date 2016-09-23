@@ -1,0 +1,5 @@
+package improbable.checks;
+
+component CheckIsClientSide {
+  id = 10900;
+}

@@ -1,0 +1,5 @@
+package improbable.chat;
+
+component ChatGroup {
+    id = 10502;
+}

@@ -1,0 +1,66 @@
+{
+  "Tasks": [
+    {
+      "Name": "Codegen",
+      "Steps": [
+        {
+          "Name": "Dependencies",
+          "Arguments": ["worker_package", "unpack"]
+        },
+        {
+          "Name": "C#",
+          "Arguments": ["process_schema", "--use_worker_defaults", "--output", "../../build/unity/Generated", "--language", "csharp_framework"]
+        },
+        {
+          "Name": "Compile generated scripts",
+          "Description": "Compiles the generated code into a single DLL for Unity to consume. Assumes the location of dependencies based on their location in the spatialos_worker.json",
+          "Arguments": ["invoke",
+            "unity-csharp-compiler",
+            "--recurse-references=Assets/Improbable/Dependencies/**/Improbable.*.dll",
+            "--recurse-references=Assets/Improbable/Dependencies/protobuf-net.dll",
+            "--",
+            "-target:library",
+            "-unsafe",
+            "-recurse:../../build/unity/Generated/*.cs",
+            "-out:Assets/Improbable/Dependencies/Generated.Code.dll"
+            ]
+        }
+      ]
+    },
+    {
+      "Name": "Build",
+      "Steps": [
+        {
+          "Name": "Codegen",
+          "Arguments": ["exec", "Codegen"]
+        },
+        {
+          "Name": "Compile scripts",
+          "Description": "Unity doesn't load new scripts when asked to execute a method on the command line, so this ensures that new scripts are added before the next steps run.",
+          "Arguments": ["invoke", "unity"]
+        },
+        {
+          "Name": "Unity workers",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.Build.SimpleBuildSystem.Build"]
+        }
+      ]
+    },
+    {
+      "Name": "Clean",
+      "Steps": [
+        {
+          "Name": "Unity workers",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.Build.SimpleBuildSystem.Clean", "--allow_fail"]
+        },
+        {
+          "Name": "Dependencies",
+          "Arguments": ["worker_package", "clean"]
+        },
+        {
+          "Name": "Generated code",
+          "Arguments": ["process_schema", "--use_worker_defaults", "clean", "../build/unity/Generated", "--language", "csharp_framework"]
+        }
+      ]
+    }
+  ]
+}

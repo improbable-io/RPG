@@ -1,0 +1,9 @@
+toolbelt.log
+spatialos_worker_packages.json
+build/
+
+schema/schema.iml
+
+.protocache/
+
+workers/unity/zip_toolbelt.log

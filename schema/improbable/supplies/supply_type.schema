@@ -1,0 +1,8 @@
+package improbable.supplies;
+
+enum SupplyTypeEnum {
+    WOOD = 0;
+    COPPER = 1;
+    TIN = 2;
+    COINS = 3;
+}

@@ -1,0 +1,6 @@
+package improbable.chat;
+
+component ChatBroadcastListener {
+  id = 10500;
+  list<string> message_history = 1;
+}

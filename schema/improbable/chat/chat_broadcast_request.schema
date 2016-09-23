@@ -1,0 +1,10 @@
+package improbable.chat;
+
+type ChatBroadcastRequestPayload {
+  string message_content = 1;
+}
+
+component ChatBroadcastRequest {
+  id = 10501;
+  event ChatBroadcastRequestPayload request_chat_broadcast;
+}

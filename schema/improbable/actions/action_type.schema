@@ -1,0 +1,11 @@
+package improbable.actions;
+
+enum ActionTypeEnum {
+    TALK = 0;
+    FIGHT = 1;
+    HARVEST = 2;
+}
+
+type ActionTypeEnumWrapper {
+    ActionTypeEnum action_type = 1;
+}

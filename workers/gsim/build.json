@@ -1,0 +1,39 @@
+{
+  "Tasks": [
+    {
+      "Name": "Codegen",
+      "Steps": [
+        {
+          "Name": "Scala",
+          "Arguments": ["process_schema", "--use_worker_defaults", "--output", "generated", "--language", "scala"]
+        }
+      ]
+    },
+    {
+      "Name": "Build",
+      "Steps": [
+        {
+          "Name": "Codegen",
+          "Arguments": ["exec", "Codegen"]
+        },
+        {
+          "Name": "scala",
+          "Arguments": ["invoke", "sbt", "workerPackage"]
+        }
+      ]
+    },
+    {
+      "Name": "Clean",
+      "Steps": [
+        {
+          "Name": "Scala",
+          "Arguments": ["invoke", "sbt", "clean"]
+        },
+        {
+          "Name": "Generated code",
+          "Arguments": ["process_schema",  "--use_worker_defaults", "clean", "generated", "--language", "scala"]
+        }
+      ]
+    }
+  ]
+}
