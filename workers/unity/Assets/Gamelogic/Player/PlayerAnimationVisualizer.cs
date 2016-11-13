@@ -38,7 +38,7 @@ public class PlayerAnimationVisualizer : MonoBehaviour
     {
         if (this.animator != null)
         {
-            this.animator.SetTrigger(playerAnimationPayload.AnimationClipName);
+            this.animator.SetTrigger(playerAnimationPayload.animationClipName);
         }
     }
 

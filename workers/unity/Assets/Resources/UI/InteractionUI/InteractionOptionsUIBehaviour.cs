@@ -40,15 +40,15 @@ public class InteractionOptionsUIBehaviour : UIBehaviour
 
             Button button = nextButton.GetComponent<Button>();
             Text buttonText = button.GetComponentInChildren<Text>();
-            buttonText.text = availableActions[i].ActionType.ToString();
+            buttonText.text = availableActions[i].actionType.ToString();
 
-            buttonActionMap[button] = availableActions[i].ActionType;
+            buttonActionMap[button] = availableActions[i].actionType;
 
             button.onClick.AddListener(() =>
             {
                 Button thisButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
                 Debug.Log("Selected interaction: name= " + thisButton.name + ", action=" + buttonActionMap[thisButton]);
-                
+
                 playerController.MoveToAndInteract(interactionObject, buttonActionMap[thisButton]);
             });
         }
