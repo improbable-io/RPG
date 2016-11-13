@@ -61,7 +61,7 @@ public class TreeInteractionHandler : InteractionHandler
         else if (availableActions.Count == 1)
         {
             Debug.Log("Possible actions count is 1; just going to harvest");
-            playerController.MoveToAndInteract(this.gameObject, availableActions[0].ActionType);
+            playerController.MoveToAndInteract(this.gameObject, availableActions[0].actionType);
         }
         else
         {
